@@ -1,53 +1,57 @@
-﻿(function ($) {
+﻿(function($) {
 
-    var options = { type: null, validationResult: null, message: null };
+    var options = {
+        type: null,
+        validationResult: null,
+        message: null
+    };
 
     var methods = {
 
-        show: function (new_options) {
+        show: function(new_options) {
             $(this).show();
-            $(this).removeClass("validation success");
+            $(this).removeClass("validation success error");
 
             var divMessageBox = '<li>${ErrorMessage}</li>'
             $.template("messageTemplate", divMessageBox);
             switch (options.type) {
-                case 'validation':
-                    $(this).addClass('validation');
-                    $(this).find('ul').empty();
-                    //we check for message first
-                    if (options.message != null)
-                        $(this).html(options.message);
+            case 'validation':
 
-                    //if message is null check of validation result
-                    else if (options.validationResult != null) {
-                        if (options.validationResult.Errors.length > 0)
-                            $.tmpl("messageTemplate", options.validationResult.Errors).appendTo($(this).find('ul'));
-                        else
-                            $(this).html("Validation failed");
+                $(this).addClass('validation');
+                $(this).find('ul').empty();
+                //we check for message first
+                if (options.message != null) $(this).html(options.message);
+
+                //if message is null check of validation result
+                else if (options.validationResult != null) {
+                    if (options.validationResult.Errors.length > 0) {
+                        $(this).html("<ul></ul>");
+                        $.tmpl("messageTemplate", options.validationResult.Errors).appendTo($(this).find('ul'));
+
                     }
-                    // give generic validation message
-                    else
-                        $(this).html("Validation failed");
+                    else $(this).html("Validation failed");
+                }
+                // give generic validation message
+                else $(this).html("Validation failed");
 
-                    break;
-                case 'success':
-                    $(this).addClass('success');
-                    $(this).html(options.message);
-                    break;
-                case 'error':
-                    $(this).addClass('error');
-                    $(this).html(options.message);
-                    break;
-                default:
+                break;
+            case 'success':
+                $(this).addClass('success');
+                $(this).html(options.message);
+                break;
+            case 'error':
+                $(this).addClass('error');
+                $(this).html(options.message);
+                break;
+            default:
             }
 
-        }
-        ,
-        hide: function () {
+        },
+        hide: function() {
             $(this).hide();
         }
     }
-    $.fn.sp_MessageBox = function (method, new_options) {
+    $.fn.sp_MessageBox = function(method, new_options) {
         setOptions(new_options);
 
         //Method calling logic
@@ -62,6 +66,7 @@
 
 
     //Set options
+
     function setOptions(new_options) {
         $.extend(options, new_options);
     }
