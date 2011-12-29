@@ -72,29 +72,31 @@
     }
 })(jQuery);
 
+$(function() {
+    $('#msgbox1').sp_MessageBox('show', {
+        type: 'validation',
+        message: 'This is a validation error'
+    });
 
-$('#msgbox1').sp_MessageBox('show', {
-    type: 'validation',
-    message: 'This is a validation error'
-});
+    $('#msgbox2').sp_MessageBox('show', {
+        type: 'validation',
+        message: null,
+        validationResult: {
+            Errors: [{
+                'ErrorMessage': 'validation Message 1'},
+            {
+                'ErrorMessage': 'validation Message 2'}]
+        }
+    });
 
-$('#msgbox2').sp_MessageBox('show', {
-    type: 'validation',
-    message: null,
-    validationResult: {
-        Errors: [{
-            'ErrorMessage': 'validation Message 1'},
-        {
-            'ErrorMessage': 'validation Message 2'}]
-    }
-});
+    $('#msgbox3').sp_MessageBox('show', {
+        type: 'success',
+        message: 'This is a success message'
+    });
 
-$('#msgbox3').sp_MessageBox('show', {
-    type: 'success',
-    message: 'This is a success message'
-});
+    $('#msgbox4').sp_MessageBox('show', {
+        type: 'error',
+        message: 'This is a error message'
+    });
 
-$('#msgbox4').sp_MessageBox('show', {
-    type: 'error',
-    message: 'This is a error message'
-});
+})
