@@ -1,0 +1,10 @@
+/*
+---
+name: Request.HTML - jsFiddle/Github integration demo
+description: jsFiddle demo hosted on Github using HTML Request to get Ajax data
+authors:
+  - Piotr Zalewa
+resources:
+  - http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js
+...
+*/
