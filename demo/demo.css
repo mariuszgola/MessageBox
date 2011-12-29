@@ -16,7 +16,7 @@
 {
     color: #4F8A10;
     background-color: #DFF2BF;
-    background-image: url('/_layouts/images/icons/tick.png');
+    background-image: url('https://raw.github.com/mariuszgola/messagebox/master/demo/resources/tick.png');
 }
 .warning
 {
@@ -35,5 +35,5 @@
     border: 1px solid #70927A;
     background-color: #D6E3DE;
     text-align: left;
-    background-image: url('/_layouts/images/icons/exclamation.png');
+    background-image: url('https://raw.github.com/mariuszgola/messagebox/master/demo/resources/exclamation.png');
 }
